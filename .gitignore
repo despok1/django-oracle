@@ -5,3 +5,4 @@ static
 staticfiles
 django.service
 .secrets
+deploy.sh
