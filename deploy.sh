@@ -3,7 +3,7 @@
 set -e
 
 cd ~/projects/django-oracle
-
+git stash
 git pull
 
 python3 -m venv .venv
@@ -14,4 +14,4 @@ python3 -m venv .venv
 .venv/bin/python manage.py collectstatic --noinput
 
 sudo systemctl restart django
-# віфвфі
+# віфвфі                
