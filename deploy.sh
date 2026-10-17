@@ -1,14 +1,16 @@
 #!/bin/bash
 
+set -e
+
 cd ~/projects/django-oracle
 
-git pull 
+git pull
 
-pipenv shell
+python3 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install -r requirements.txt
 
-pipenv install
-
-python manage.py migrate
-python manage.py collectstatic --noinput
+.venv/bin/python manage.py migrate
+.venv/bin/python manage.py collectstatic --noinput
 
 sudo systemctl restart django
