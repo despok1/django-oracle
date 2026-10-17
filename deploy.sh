@@ -14,4 +14,4 @@ python3 -m venv .venv
 .venv/bin/python manage.py collectstatic --noinput
 
 sudo systemctl restart django
-# віфвфі                
+# віфвфіadsad                
