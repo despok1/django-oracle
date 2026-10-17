@@ -15,5 +15,6 @@ scp2:
 	scp -i ~/.ssh/ssh-key-2026-09-27.key deploy.sh ubuntu@152.70.190.140:~/deploy.sh
 freeze:
 	pip freeze > requirements.txt
-scripts:
-	scp -r .\scripts ubuntu@152.70.190.140:/home/ubuntu/projects/django-oracle/ && chmod +x ~/projects/django-oracle/scripts/deploy.sh
+script:
+	scp -i ~/.ssh/ssh-key-2026-09-27.key -r scripts/ ubuntu@152.70.190.140:~/projects/django-oracle
+	ssh -i ~/.ssh/ssh-key-2026-09-27.key ubuntu@152.70.190.140 "chmod +x ~/projects/django-oracle/scripts/deploy.sh"
