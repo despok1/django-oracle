@@ -17,4 +17,5 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            chmod 755 ~/projects/django-oracle/deploy.sh
             ~/projects/django-oracle/deploy.sh
