@@ -1,0 +1,262 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 48px 24px;
+    background: #f5f7fb;
+    color: #172033;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+nav {
+    display: flex;
+    width: min(100%, 760px);
+    gap: 8px;
+    margin: 0 auto 24px;
+    padding: 8px;
+    border: 1px solid #e8ebf2;
+    border-radius: 14px;
+    background: #fff;
+}
+
+nav a {
+    padding: 10px 16px;
+    border-radius: 9px;
+    color: #667085;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+nav a:hover {
+    background: #f3f5f9;
+    color: #172033;
+}
+
+nav a[aria-current="page"] {
+    background: #172033;
+    color: #fff;
+}
+
+nav a:focus-visible {
+    outline: 3px solid #a9baff;
+    outline-offset: 2px;
+}
+
+main {
+    width: min(100%, 760px);
+    min-height: 240px;
+    margin: 0 auto;
+    padding: 48px;
+    border: 1px solid #e8ebf2;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgb(23 32 51 / 5%);
+}
+
+main h1 {
+    margin: 0 0 16px;
+    font-size: clamp(30px, 5vw, 42px);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+}
+
+main p {
+    max-width: 58ch;
+    margin: 0;
+    color: #667085;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.documentation {
+    width: min(100%, 900px);
+}
+
+.hero {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e8ebf2;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: #5368c5;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+main .lead {
+    max-width: 65ch;
+    font-size: 18px;
+}
+
+.doc-section {
+    padding-top: 30px;
+}
+
+.doc-section h2 {
+    margin: 0 0 16px;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+}
+
+.doc-section p,
+.steps {
+    color: #475467;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.steps {
+    display: grid;
+    gap: 18px;
+    padding-left: 24px;
+}
+
+.steps li {
+    padding-left: 4px;
+}
+
+code,
+kbd {
+    border-radius: 5px;
+    background: #f1f3f8;
+    color: #344054;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9em;
+}
+
+:not(pre) > code,
+kbd {
+    padding: 3px 6px;
+}
+
+pre {
+    overflow-x: auto;
+    margin: 10px 0;
+    padding: 16px 18px;
+    border-radius: 10px;
+    background: #172033;
+    color: #edf0f7;
+    line-height: 1.6;
+}
+
+pre code {
+    background: none;
+    color: inherit;
+    font-size: 13px;
+}
+
+.file-list {
+    display: grid;
+    gap: 0;
+    margin: 0;
+}
+
+.file-list div {
+    display: grid;
+    grid-template-columns: minmax(210px, 0.8fr) 1.6fr;
+    gap: 16px;
+    padding: 13px 0;
+    border-bottom: 1px solid #eef0f4;
+}
+
+.file-list dt {
+    font-weight: 600;
+}
+
+.file-list dd {
+    margin: 0;
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.photo-placeholder {
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid #e8ebf2;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 14px rgb(23 32 51 / 4%);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.photo-placeholder:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgb(23 32 51 / 9%);
+}
+
+.photo-frame {
+    display: flex;
+    height: 190px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f4f6fa;
+    color: #7b8496;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.photo-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.photo-placeholder:first-child .photo-frame {
+    padding: 24px;
+    background: #f5f8f2;
+}
+
+.photo-placeholder:first-child .photo-frame img {
+    object-fit: contain;
+}
+
+.photo-placeholder figcaption {
+    min-height: 84px;
+    padding: 14px;
+    color: #667085;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.photo-placeholder figcaption strong {
+    color: #344054;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 24px 16px;
+    }
+
+    main {
+        min-height: 200px;
+        padding: 32px 24px;
+    }
+
+    .file-list div {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+}
