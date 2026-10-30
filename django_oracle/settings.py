@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0hpf*l2_r26w&wav)0i4i$*wrv@2^ves9_2(p39f(&42gnl(ne
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['152.70.190.140', 'localhost', 'app.meblas.com' ]
+ALLOWED_HOSTS = ['152.70.190.140', 'localhost', 'app.meblas.com', '127.0.0.1']
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 # Application definition

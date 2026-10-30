@@ -1,11 +1,187 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    1233231231231232312312312
-</body>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django — практичний посібник</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <nav aria-label="Головна навігація">
+      <a id="home-tab" aria-current="page" href="{% url 'index' %}">Посібник</a>
+      <a id="info-tab" href="{% url 'info' %}">Про проєкт</a>
+    </nav>
+    <main class="documentation">
+      <header class="hero">
+        <p class="eyebrow">Практичний посібник для початківців</p>
+        <h1>Як працювати з Django</h1>
+        <p class="lead">Від встановлення Django до першої сторінки: короткий гайд з командами та поясненням основних понять.</p>
+      </header>
+
+      <section class="doc-section" id="django">
+        <h2>Що таке Django</h2>
+        <p>Django — це вебфреймворк для Python. Він надає готові інструменти для обробки запитів, роботи з базою даних, шаблонами HTML, формами та адміністративною панеллю.</p>
+        <p>У Django проєкт — це весь сайт і його налаштування, а застосунок (app) — окрема частина сайту з певною функцією. В одному проєкті може бути кілька застосунків.</p>
+      </section>
+
+      <section class="doc-section" id="installation">
+        <h2>Встановлення Django</h2>
+        <p>Переконайтеся, що Python встановлений, і створіть папку для нового проєкту. У терміналі перейдіть у цю папку та створіть віртуальне середовище:</p>
+        <pre>
+          <code>python -m venv .venv</code>
+        </pre>
+        <p>Активуйте його. У Windows PowerShell:</p>
+        <pre>
+          <code>.\.venv\Scripts\Activate.ps1</code>
+        </pre>
+        <p>У macOS або Linux:</p>
+        <pre>
+          <code>source .venv/bin/activate</code>
+        </pre>
+        <p>Встановіть Django у віртуальне середовище та перевірте версію:</p>
+        <pre>
+          <code>python -m pip install Django python -m django --version</code>
+        </pre>
+      </section>
+
+      <section class="doc-section" id="first-project">
+        <h2>Створення та запуск проєкту</h2>
+        <p>Створіть Django-проєкт у поточній папці командою:</p>
+        <pre>
+          <code>django-admin startproject config . python manage.py runserver</code>
+        </pre>
+        <p>
+          Відкрийте <code>http://127.0.0.1:8000/</code> у браузері. Локальний сервер зупиняється комбінацією <kbd>Ctrl</kbd> + <kbd>C</kbd>.
+        </p>
+        <p>Створіть окремий застосунок для функціональності сайту:</p>
+        <pre>
+          <code>python manage.py startapp pages</code>
+        </pre>
+        <p>
+          Додайте його до списку <code>INSTALLED_APPS</code> у <code>config/settings.py</code>. Після змін у налаштуваннях або коді перезапустіть сервер, якщо він не перезавантажився автоматично.
+        </p>
+      </section>
+
+      <section class="doc-section" id="page-flow">
+        <h2>Як Django показує сторінку</h2>
+        <ol class="steps">
+          <li>
+            <strong>URL-маршрут</strong> у <code>urls.py</code> визначає, яка функція обробить адресу.
+          </li>
+          <li>
+            <strong>Подання (view)</strong> у <code>views.py</code> обробляє запит і готує відповідь.
+          </li>
+          <li>
+            <strong>Шаблон</strong> у папці <code>templates/</code> формує HTML, який побачить відвідувач.
+          </li>
+          <li>
+            <strong>Модель (model)</strong> описує дані та дає змогу працювати з базою даних через ORM.
+          </li>
+        </ol>
+        <p>Щоб сторінка з’явилася на сайті, зазвичай потрібно створити view, HTML-шаблон і додати маршрут до URL-конфігурації.</p>
+      </section>
+
+      <section class="doc-section" id="commands">
+        <h2>Корисні команди Django</h2>
+        <dl class="file-list">
+          <div>
+            <dt>
+              <code>python manage.py runserver</code>
+            </dt><dd>Запустити локальний сервер для розробки.</dd>
+          </div>
+          <div>
+            <dt>
+              <code>python manage.py startapp назва</code>
+            </dt><dd>Створити новий застосунок у проєкті.</dd>
+          </div>
+          <div>
+            <dt>
+              <code>python manage.py makemigrations</code>
+            </dt><dd>Створити файли міграцій після змін у моделях.</dd>
+          </div>
+          <div>
+            <dt>
+              <code>python manage.py migrate</code>
+            </dt><dd>Застосувати міграції та оновити структуру бази даних.</dd>
+          </div>
+          <div>
+            <dt>
+              <code>python manage.py createsuperuser</code>
+            </dt><dd>Створити адміністратора для панелі <code>/admin/</code>.</dd>
+          </div>
+          <div>
+            <dt>
+              <code>python manage.py test</code>
+            </dt><dd>Запустити автоматичні тести проєкту.</dd>
+          </div>
+          <div>
+            <dt>
+              <code>python manage.py shell</code>
+            </dt><dd>Відкрити інтерактивну оболонку Django.</dd>
+          </div>
+          <div>
+            <dt>
+              <code>python manage.py check</code>
+            </dt><dd>Перевірити проєкт на типові помилки конфігурації.</dd>
+          </div>
+        </dl>
+        <p>
+          Якщо змінюєте моделі, типовий порядок такий: <code>makemigrations</code>, потім <code>migrate</code>.
+        </p>
+      </section>
+
+      <section class="doc-section" id="makefile">
+        <h2>Для чого потрібен Makefile</h2>
+        <p>
+          <code>Makefile</code> зберігає короткі команди (цілі), щоб не набирати довгі команди щоразу. У корені цього репозиторію є цілі:
+        </p>
+        <dl class="file-list">
+          <div>
+            <dt>
+              <code>make run</code>
+            </dt><dd>Запускає локальний сервер: <code>python3 manage.py runserver</code>.</dd>
+          </div>
+          <div>
+            <dt>
+              <code>make migrate</code>
+            </dt><dd>Застосовує міграції: <code>python3 manage.py migrate</code>.</dd>
+          </div>
+          <div>
+            <dt>
+              <code>make run-server</code>
+            </dt><dd>Запускає сервер на <code>0.0.0.0:8000</code>, тобто робить його доступним через мережеві інтерфейси комп’ютера. Використовуйте лише коли це потрібно.</dd>
+          </div>
+          <div>
+            <dt>
+              <code>make freeze</code>
+            </dt><dd>Записує встановлені Python-пакети у <code>requirements.txt</code>. Перевірте зміни перед збереженням файлу.</dd>
+          </div>
+        </dl>
+        <p>
+          Викликати ціль можна командою <code>make назва-цілі</code>, наприклад <code>make run</code>. Для цього має бути встановлений GNU Make. У Windows, якщо Make не налаштований, використовуйте відповідну команду <code>python manage.py ...</code> безпосередньо. У цьому Makefile команди використовують <code>python3</code>, тому перевірте, що така команда доступна у вашій системі.
+        </p>
+      </section>
+
+      <section class="doc-section" id="photos">
+        <div class="photo-grid">
+          <figure class="photo-placeholder">
+            <div class="photo-frame">
+              <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="Логотип Django" />
+            </div>
+          </figure>
+          <figure class="photo-placeholder">
+            <div class="photo-frame">
+              <img src="https://miro.medium.com/v2/resize:fit:1128/0*2AXqwfNKqwYvrs3Z.jpg" alt="Схема обробки запиту в Django" />
+            </div>
+          </figure>
+          <figure class="photo-placeholder">
+            <div class="photo-frame">
+              <img src="https://media.licdn.com/dms/image/v2/D4D12AQHIC5zhMmhoRA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1680122003895?e=2147483647&v=beta&t=rTGc0mhNqDS5_QEd3ob7f6Yli-oStZItKOVDlhOtrVk" alt="Приклад панелі адміністратора" />
+            </div>
+          </figure>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

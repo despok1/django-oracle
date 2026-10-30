@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про проєкт</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav aria-label="Головна навігація">
+        <a id="home-tab" href="{% url 'index' %}">Посібник</a>
+        <a id="info-tab" aria-current="page" href="{% url 'info' %}">Про проєкт</a>
+    </nav>
+    <main>
+        <h1>Про проєкт</h1>
+        <p>Цей сайт створено на Django. На головній сторінці зібрано короткий посібник: як запустити проєкт, де шукати основні файли та як додати нову сторінку.</p>
+    </main>
+</body>
+</html>
