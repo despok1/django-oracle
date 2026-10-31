@@ -7,6 +7,7 @@ class IndexViewTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "oracle/index.html")
+        self.assertContains(response, 'href="/static/css/style.css"')
         self.assertContains(response, 'lang="uk"')
         self.assertContains(response, 'id="home-tab"')
         self.assertContains(response, 'id="info-tab"')
@@ -28,5 +29,6 @@ class IndexViewTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "oracle/info.html")
+        self.assertContains(response, 'href="/static/css/style.css"')
         self.assertContains(response, 'href="/"')
         self.assertContains(response, "Цей сайт створено на Django.")
